@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký - FiveStar Clothing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector(".register-form");
+      const emailInput = document.getElementById("register-email");
+      const passwordInput = document.getElementById("register-password");
+      const confirmInput = document.getElementById("register-confirm");
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirm = confirmInput.value.trim();
+
+        if (email === "") {
+          alert("Email không được để trống.");
+          return;
+        }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.(com)$/i;
+        if (!emailPattern.test(email)) {
+            alert("Email không hợp lệ. Vui lòng nhập đúng định dạng (ví dụ: example@gmail.com).");
+            emailInput.focus();
+            return;
+        }
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const emailExists = users.some(user => user.email === email);
+        if (emailExists) {
+            alert("Email đã được đăng ký. Vui lòng dùng email khác.");
+            emailInput.focus();
+            return;
+        }
+
+        if (password.length < 6) {
+          alert("Mật khẩu phải có ít nhất 6 ký tự.");
+          passwordInput.focus();
+          return;
+        }
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+        if (!passwordPattern.test(password)) {
+            alert("Mật khẩu phải có ít nhất 6 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.");
+            passwordInput.focus();
+            return;
+        }
+        if (password !== confirm) {
+          alert("Mật khẩu xác nhận không khớp.");
+          confirmInput.focus();
+          return;
+        }
+        const user = {
+          email : email,
+          password: password
+        };
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Đăng ký thành công!");
+        form.reset();
+      });
+    });
+  </script>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">FiveStar Clothing</div>
+      <ul class="navbar__links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="login.html">Đăng nhập / Đăng ký</a></li>
+        <li>
+          <a href="cart.html">Giỏ hàng <span class="cart-count">0</span></a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h1 class="page-title">Đăng ký tài khoản</h1>
+      <form class="form register-form">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" name="email"/>
+        <label for="register-password">Mật khẩu</label>
+        <input
+          type="password"
+          id="register-password"
+          name="password"
+          required
+        />
+        <label for="register-confirm">Xác nhận mật khẩu</label>
+        <input type="password" id="register-confirm" name="confirm" required />
+        <button type="submit" class="btn register-btn">Đăng ký</button>
+      </form>
+      <p class="form-link">
+        Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+      </p>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 FiveStar Clothing. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

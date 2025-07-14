@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng - FiveStar Clothing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">FiveStar Clothing</div>
+      <ul class="navbar__links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="login.html">Đăng nhập / Đăng ký</a></li>
+        <li>
+          <a href="cart.html">Giỏ hàng <span class="cart-count">2</span></a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h1 class="page-title">Giỏ hàng của bạn</h1>
+      <section class="cart-list">
+        <!-- Sản phẩm trong giỏ hàng giả lập -->
+        <div class="cart-item">
+          <img src="img/product1.jpg" alt="Áo thun nam basic" />
+          <div class="cart-item-info">
+            <h2>Áo thun nam basic</h2>
+            <p class="price">150.000đ</p>
+          </div>
+          <button class="btn remove-from-cart">Xóa khỏi giỏ hàng</button>
+        </div>
+        <div class="cart-item">
+          <img src="img/product4.jpg" alt="Váy xòe nữ trẻ trung" />
+          <div class="cart-item-info">
+            <h2>Váy xòe nữ trẻ trung</h2>
+            <p class="price">280.000đ</p>
+          </div>
+          <button class="btn remove-from-cart">Xóa khỏi giỏ hàng</button>
+        </div>
+      </section>
+      <div class="cart-total">
+        <span>Tổng tiền:</span>
+        <span class="total-price">430.000đ</span>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 FiveStar Clothing. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

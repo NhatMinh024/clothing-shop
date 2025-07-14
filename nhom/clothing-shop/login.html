@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập - FiveStar Clothing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">FiveStar Clothing</div>
+      <ul class="navbar__links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="login.html">Đăng nhập / Đăng ký</a></li>
+        <li>
+          <a href="cart.html">Giỏ hàng <span class="cart-count">0</span></a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h1 class="page-title">Đăng nhập</h1>
+      <form class="form login-form">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" required />
+        <label for="login-password">Mật khẩu</label>
+        <input type="password" id="login-password" name="password" required />
+        <button type="submit" class="btn login-btn">Đăng nhập</button>
+      </form>
+      <p class="form-link">
+        Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+      </p>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 FiveStar Clothing. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
